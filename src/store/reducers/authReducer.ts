@@ -19,7 +19,14 @@ interface LoginAction {
     studentMarks: Array<any>;
   };
 }
-type Action = LoginAction;
+interface NewsAction {
+  type: 'NEWS';
+  payload: Array<string>;
+}
+interface LogoutUser {
+  type: 'LOGOUT';
+}
+type Action = LoginAction | LogoutUser | NewsAction;
 const authReducer = (state = initialState, action: Action) => {
   switch (action.type) {
     case LOGIN: {
