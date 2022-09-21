@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, NEWS } from "./../types/constants";
+import {LOGIN, LOGOUT, NEWS} from '../types/constants';
 let initialState = {
   isAuthenticated: false,
   cUser: {},
@@ -10,16 +10,27 @@ let initialState = {
   cUserSubjects: [],
   news: [],
 };
-const authReducer = (state = initialState, action) => {
+interface LoginAction {
+  type: 'LOGIN';
+  payload: {
+    studentData: object;
+    studentAttendance: {[key: string]: any}[];
+    studentSubjects: Array<String>;
+    studentMarks: Array<any>;
+  };
+}
+type Action = LoginAction;
+const authReducer = (state = initialState, action: Action) => {
   switch (action.type) {
     case LOGIN: {
-      let isUserLogginedNow = true;
-      let user = action.payload.studentData;
-      let userAttendance = action.payload.studentAttendance;
-      let presents = 0;
-      let absents = 0;
-      let totalNoOfDays = 0;
-      userAttendance.forEach((attendance) => {
+      let isUserLogginedNow: boolean = true;
+      let user: object = action.payload.studentData;
+      let userAttendance: {[key: string]: any}[] =
+        action.payload.studentAttendance;
+      let presents: number = 0;
+      let absents: number = 0;
+      let totalNoOfDays: number = 0;
+      userAttendance.forEach(attendance => {
         if (attendance.attendanceStatus === true) {
           presents++;
         }
