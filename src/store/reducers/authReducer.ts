@@ -27,7 +27,10 @@ interface LogoutUser {
   type: 'LOGOUT';
 }
 type Action = LoginAction | LogoutUser | NewsAction;
-const authReducer = (state = initialState, action: Action) => {
+const authReducer = (
+  state: {[key: string]: any} = initialState,
+  action: Action,
+) => {
   switch (action.type) {
     case LOGIN: {
       let isUserLogginedNow: boolean = true;

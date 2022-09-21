@@ -3,7 +3,7 @@ import {AppState} from '../store/reducers/rootReducer';
 import React from 'react';
 import {useSelector} from 'react-redux';
 export default function Test() {
-  const isAuthenticated = useSelector(
+  const isAuthenticated: Boolean = useSelector(
     (store: AppState) => store.authReducer.isAuthenticated,
   );
   console.log(
@@ -12,7 +12,7 @@ export default function Test() {
   );
   return (
     <View>
-      <Text>{isAuthenticated}</Text>
+      <Text></Text>
     </View>
   );
 }
