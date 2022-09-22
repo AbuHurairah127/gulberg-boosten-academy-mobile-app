@@ -1,9 +1,17 @@
-import {ScrollView, Text, TextInput, View} from 'react-native';
+import {
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import React from 'react';
+import React, {useState} from 'react';
 import {styles} from './LoginStyles';
 import Button from './../../../components/button/Button';
+import useLogin from './useLogin';
 const Login: React.FC = () => {
+  const {passwordAppear, setPasswordAppear} = useLogin();
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -28,8 +36,17 @@ const Login: React.FC = () => {
               style={styles.text_input}
               placeholder="Your Password"
               placeholderTextColor="white"
+              secureTextEntry={passwordAppear ? true : false}
             />
-            <Icon name="eye" size={20} color="grey" />
+            {passwordAppear ? (
+              <TouchableOpacity onPress={() => setPasswordAppear(false)}>
+                <Icon name="eye" size={20} color="grey" />
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity onPress={() => setPasswordAppear(true)}>
+                <Icon name="eye-slash" size={20} color="grey" />
+              </TouchableOpacity>
+            )}
           </View>
           <View style={styles.button_container}>
             <Button label="Login" />
