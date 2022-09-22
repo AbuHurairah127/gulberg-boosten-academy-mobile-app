@@ -23,5 +23,23 @@ export const styles = StyleSheet.create({
     borderTopRightRadius: 35,
     borderTopLeftRadius: 35,
     width: '100%',
+    paddingVertical: 30,
+    paddingHorizontal: 20,
+  },
+  input_Container: {
+    flexDirection: 'row',
+    borderBottomColor: 'white',
+    borderBottomWidth: 1,
+    alignItems: 'center',
+    marginBottom: 30,
+  },
+  text_label: {
+    color: 'white',
+    fontSize: 18,
+  },
+  text_input: {
+    paddingLeft: 10,
+    color: 'white',
+    width: '90%',
   },
 });
