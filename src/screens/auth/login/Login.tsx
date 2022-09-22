@@ -2,6 +2,7 @@ import {ScrollView, Text, TextInput, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import React from 'react';
 import {styles} from './LoginStyles';
+import Button from './../../../components/button/Button';
 const Login: React.FC = () => {
   return (
     <View style={styles.container}>
@@ -29,6 +30,9 @@ const Login: React.FC = () => {
               placeholderTextColor="white"
             />
             <Icon name="eye" size={20} color="grey" />
+          </View>
+          <View style={styles.button_container}>
+            <Button label="Login" />
           </View>
         </ScrollView>
       </View>

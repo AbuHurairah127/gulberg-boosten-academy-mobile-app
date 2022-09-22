@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
   },
   input_Container: {
     flexDirection: 'row',
-    borderBottomColor: 'white',
+    borderBottomColor: '#fff',
     borderBottomWidth: 1,
     alignItems: 'center',
     marginBottom: 30,
@@ -41,5 +41,11 @@ export const styles = StyleSheet.create({
     paddingLeft: 10,
     color: 'white',
     width: '90%',
+  },
+  button_container: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 50,
   },
 });
