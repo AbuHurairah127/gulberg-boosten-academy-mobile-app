@@ -11,7 +11,16 @@ import {styles} from './LoginStyles';
 import Button from './../../../components/button/Button';
 import useLogin from './useLogin';
 const Login: React.FC = () => {
-  const {passwordAppear, setPasswordAppear} = useLogin();
+  const {
+    passwordAppear,
+    setPasswordAppear,
+    rollNo,
+    setRollNo,
+    onRollNoChangeHandler,
+    password,
+    setPassword,
+    onPasswordChangeHandler,
+  } = useLogin();
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -27,6 +36,8 @@ const Login: React.FC = () => {
               placeholder="Your Roll No"
               placeholderTextColor="white"
               keyboardType="numeric"
+              value={rollNo}
+              onChangeText={onRollNoChangeHandler}
             />
           </View>
           <Text style={styles.text_label}>Password</Text>
@@ -37,6 +48,8 @@ const Login: React.FC = () => {
               placeholder="Your Password"
               placeholderTextColor="white"
               secureTextEntry={passwordAppear ? true : false}
+              value={password}
+              onChangeText={onPasswordChangeHandler}
             />
             {passwordAppear ? (
               <TouchableOpacity onPress={() => setPasswordAppear(false)}>
