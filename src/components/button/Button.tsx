@@ -4,11 +4,12 @@ import {styles} from './ButtonStyle';
 const Button: React.FC<
   PropsWithChildren<{
     label: string;
+    event: () => void;
   }>
-> = ({label}) => {
+> = ({label, event}) => {
   return (
     <View>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={event}>
         <View style={styles.container}>
           <Text style={styles.button_text}>{label}</Text>
         </View>

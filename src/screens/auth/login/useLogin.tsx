@@ -11,11 +11,15 @@ const useLogin = () => {
       [name]: value,
     });
   };
+  const onSubmitHandler = () => {
+    console.log('on submit working');
+  };
   return {
     passwordAppear,
     setPasswordAppear,
     loginData,
     onChangeHandler,
+    onSubmitHandler,
   };
 };
 

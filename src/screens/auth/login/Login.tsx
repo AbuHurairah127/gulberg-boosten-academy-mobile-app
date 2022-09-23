@@ -10,9 +10,14 @@ import React from 'react';
 import {styles} from './LoginStyles';
 import Button from './../../../components/button/Button';
 import useLogin from './useLogin';
-const Login: React.FC = () => {
-  const {passwordAppear, setPasswordAppear, loginData, onChangeHandler} =
-    useLogin();
+const Login: React.FC = (navigation: object) => {
+  const {
+    passwordAppear,
+    setPasswordAppear,
+    loginData,
+    onChangeHandler,
+    onSubmitHandler,
+  } = useLogin();
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -54,7 +59,7 @@ const Login: React.FC = () => {
             )}
           </View>
           <View style={styles.button_container}>
-            <Button label="Login" />
+            <Button label="Login" event={() => onSubmitHandler()} />
           </View>
         </ScrollView>
       </View>
