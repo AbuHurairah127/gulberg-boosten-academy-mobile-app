@@ -1,11 +1,4 @@
 {
-  "expo": {
-    "name": "gulberg-boosten-academy-mobile-app",
-    "slug": "gulberg-boosten-academy-mobile-app",
-    "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
-  },
-  "name": "gulberg-boosten-academy-mobile-app"
+  "name": "p",
+  "displayName": "p"
 }
