@@ -1,5 +1,6 @@
 import {useState} from 'react';
 const useLogin = () => {
+  const [passwordAppear, setPasswordAppear] = useState(true);
   const [loginData, setLoginData] = useState({
     rollNo: '',
     password: '',
@@ -14,6 +15,8 @@ const useLogin = () => {
     console.log('on submit working');
   };
   return {
+    passwordAppear,
+    setPasswordAppear,
     loginData,
     onChangeHandler,
     onSubmitHandler,
