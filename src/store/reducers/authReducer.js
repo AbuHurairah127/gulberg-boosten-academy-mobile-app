@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, NEWS } from "./../types/constants";
+import {LOGIN, LOGOUT, NEWS} from './../types/constants';
 let initialState = {
   isAuthenticated: false,
   cUser: {},
@@ -19,7 +19,7 @@ const authReducer = (state = initialState, action) => {
       let presents = 0;
       let absents = 0;
       let totalNoOfDays = 0;
-      userAttendance.forEach((attendance) => {
+      userAttendance.forEach(attendance => {
         if (attendance.attendanceStatus === true) {
           presents++;
         }
