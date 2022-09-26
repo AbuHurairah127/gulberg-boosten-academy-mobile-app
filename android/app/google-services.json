@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:846968168401:android:13992d9d448604db658af0",
+        "mobilesdk_app_id": "1:846968168401:android:cc01ef833d8e8bca658af0",
         "android_client_info": {
-          "package_name": "boosten.academy"
+          "package_name": "com.boostenacademy"
         }
       },
       "oauth_client": [
