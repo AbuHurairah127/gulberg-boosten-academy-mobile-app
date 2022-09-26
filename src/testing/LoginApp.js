@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {View, Text} from 'react-native';
 import auth from '@react-native-firebase/auth';
 
-function App() {
+function LoginApp() {
   // Set an initializing state whilst Firebase connects
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
@@ -34,4 +34,4 @@ function App() {
     </View>
   );
 }
-export default App;
+export default LoginApp;

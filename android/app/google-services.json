@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "846968168401",
+    "project_id": "boosten-academy",
+    "storage_bucket": "boosten-academy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:846968168401:android:13992d9d448604db658af0",
+        "android_client_info": {
+          "package_name": "boosten.academy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "846968168401-agahuedc28i1al7vmj7ulm6c8dajrhou.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDl00egGPDplcl-IFkw6J4uvmIhZebWolU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "846968168401-agahuedc28i1al7vmj7ulm6c8dajrhou.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

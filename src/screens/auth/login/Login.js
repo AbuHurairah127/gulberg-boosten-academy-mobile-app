@@ -10,7 +10,7 @@ import React from 'react';
 import {styles} from './LoginStyle';
 import Button from './../../../components/button/Button';
 import useLogin from './useLogin';
-const Login = ({navigation}) => {
+const Login = () => {
   const {
     passwordAppear,
     setPasswordAppear,
@@ -63,8 +63,9 @@ const Login = ({navigation}) => {
               label="Login"
               event={() => {
                 console.log('login');
-                navigation.navigate('Home');
+                onSubmitHandler();
               }}
+              type="submit"
             />
           </View>
         </ScrollView>
