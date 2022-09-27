@@ -2,6 +2,7 @@ import {LOGIN, LOGOUT, NEWS} from '../types/constants';
 import {auth} from './../../config/firebase';
 import {
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   updatePassword,
   onAuthStateChanged,
   signOut,
@@ -23,8 +24,9 @@ export const userLogin = data => async dispatch => {
     let currentStudent = {};
     let marksArray = [];
     // setButtonLoader(true);
+    data = {...data, userName: `${data.rollNo}@gulbergbostonacadmey.web.app`};
     console.log(data);
-    const res = await createUserWithEmailAndPassword(
+    const res = await signInWithEmailAndPassword(
       auth,
       data.userName,
       data.password,

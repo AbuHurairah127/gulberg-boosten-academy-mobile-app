@@ -29,10 +29,6 @@ const useLogin = () => {
         text2: 'You have not entered your password properly.',
       });
     } else {
-      setLoginData({
-        ...loginData,
-        userName: `${loginData.rollNo}@gulbergbostonacademy.web.app`,
-      });
       dispatch(userLogin(loginData));
     }
   };
