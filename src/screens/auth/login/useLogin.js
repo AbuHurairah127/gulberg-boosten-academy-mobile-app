@@ -1,7 +1,8 @@
 import {useState} from 'react';
 import {Toast} from 'react-native-toast-message/lib/src/Toast';
 import {useDispatch} from 'react-redux';
-import {userLogin} from '../../../store/actions/authActions';
+import {userLogin, fetchCurrentUser} from '../../../store/actions/authActions';
+import {useEffect} from 'react';
 const useLogin = () => {
   const dispatch = useDispatch();
   const [passwordAppear, setPasswordAppear] = useState(true);
@@ -32,6 +33,9 @@ const useLogin = () => {
       dispatch(userLogin(loginData));
     }
   };
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
   return {
     passwordAppear,
     setPasswordAppear,

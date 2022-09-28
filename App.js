@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {SafeAreaView} from 'react-native';
-import {Provider} from 'react-redux';
+import {Provider, useDispatch} from 'react-redux';
 import store from './src/config/store';
 import MainNavigation from './src/navigation/MainNavigation';
 const App = () => {

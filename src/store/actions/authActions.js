@@ -63,7 +63,7 @@ export const userLogin = data => async dispatch => {
     // });
     console.log('login succes');
   } catch (error) {
-    console.log(error.message, 'error');
+    console.log(error.message, 'error in firebase');
   } finally {
     // setTimeout(() => {
     //   setButtonLoader(false);
@@ -83,61 +83,64 @@ export const userLogin = data => async dispatch => {
 //     // setIsLoggingOut(false);
 //   }
 // };
-// export const fetchCurrentUser = setPreLoader => async dispatch => {
-//   try {
-//     onAuthStateChanged(auth, async user => {
-//       let attendanceArray = [];
-//       let marksArray = [];
-//       let currentStudent = {};
-//       if (user) {
-//         const docSnap = await getDoc(doc(db, 'students', user.uid));
-//         const userData = docSnap.data();
-//         if (userData) {
-//           const attendanceRef = doc(db, 'attendance', userData.uid);
-//           const attendanceSnap = await getDoc(attendanceRef);
+export const fetchCurrentUser = () => async dispatch => {
+  try {
+    onAuthStateChanged(auth, async user => {
+      let attendanceArray = [];
+      let marksArray = [];
+      let currentStudent = {};
+      // if (user) {
+      //   const docSnap = await getDoc(doc(db, 'students', user.uid));
+      //   const userData = docSnap.data();
+      //   if (userData) {
+      //     const attendanceRef = doc(db, 'attendance', userData.uid);
+      //     const attendanceSnap = await getDoc(attendanceRef);
 
-//           if (attendanceSnap.exists()) {
-//             const attendance = attendanceSnap.data();
-//             attendanceArray = Object.values(attendance);
-//           }
-//           const marksRef = doc(db, 'marks', user.uid);
-//           const marksSnap = await getDoc(marksRef);
+      //     if (attendanceSnap.exists()) {
+      //       const attendance = attendanceSnap.data();
+      //       attendanceArray = Object.values(attendance);
+      //     }
+      //     const marksRef = doc(db, 'marks', user.uid);
+      //     const marksSnap = await getDoc(marksRef);
 
-//           if (marksSnap.exists()) {
-//             const marks = await marksSnap.data();
-//             marksArray = Object.values(marks);
-//           }
+      //     if (marksSnap.exists()) {
+      //       const marks = await marksSnap.data();
+      //       marksArray = Object.values(marks);
+      //     }
 
-//           marksArray = marksArray.sort((a, b) => a.testNo - b.testNo);
-//           let subjects = JSON.parse(userData.subjects);
-//           currentStudent = {
-//             studentData: userData,
-//             studentAttendance: attendanceArray,
-//             studentSubjects: subjects,
-//             studentMarks: marksArray,
-//           };
-//           dispatch({
-//             type: LOGIN,
-//             payload: currentStudent,
-//           });
-//         } else {
-//           await signOut(auth);
-//           dispatch({type: LOGOUT});
-//           window.notify(
-//             'You are not allowed to sign in any more.Please contact management for more information.',
-//             'info',
-//           );
-//         }
-//       }
-//     });
-//   } catch (error) {
-//     window.notify(error.message, 'error');
-//   } finally {
-//     setTimeout(() => {
-//       setPreLoader(false);
-//     }, 7500);
-//   }
-// };
+      //     marksArray = marksArray.sort((a, b) => a.testNo - b.testNo);
+      //     let subjects = JSON.parse(userData.subjects);
+      //     currentStudent = {
+      //       studentData: userData,
+      //       studentAttendance: attendanceArray,
+      //       studentSubjects: subjects,
+      //       studentMarks: marksArray,
+      //     };
+      //     dispatch({
+      //       type: LOGIN,
+      //       payload: currentStudent,
+      //     });
+      //   } else {
+      //     await signOut(auth);
+      //     dispatch({type: LOGOUT});
+      //     window.notify(
+      //       'You are not allowed to sign in any more.Please contact management for more information.',
+      //       'info',
+      //     );
+      //   }
+      // }
+      if (user) {
+        console.log(`authentication success message ${user.email}`);
+      }
+    });
+  } catch (error) {
+    window.notify(error.message, 'error');
+  } finally {
+    // setTimeout(() => {
+    //   setPreLoader(false);
+    // }, 7500);
+  }
+};
 // export const passwordUpdate = (data, setIsLoading) => async dispatch => {
 //   try {
 //     setIsLoading(true);
