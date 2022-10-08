@@ -16,7 +16,7 @@ import {
   getDocs,
   orderBy,
   setDoc,
-} from 'firebase/firestore/lite';
+} from 'firebase/firestore';
 export const userLogin = data => async dispatch => {
   try {
     console.log('actionWorking');
@@ -96,6 +96,9 @@ export const fetchCurrentUser = () => async dispatch => {
         console.log(user.uid);
         console.log('====================================');
         const docSnap = await getDoc(doc(db, 'students', user.uid));
+        console.log('====================================');
+        console.log(docSnap);
+        console.log('====================================');
         const userData = docSnap.data();
         console.log('====================================');
         console.log(userData);
