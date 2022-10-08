@@ -1,6 +1,6 @@
 import {initializeApp} from 'firebase/app';
 import {getAuth} from 'firebase/auth';
-import {getFirestore} from 'firebase/firestore';
+import {getFirestore} from 'firebase/firestore/lite';
 const firebaseConfig = {
   apiKey: 'AIzaSyB9dzSFYgnuTx2GFM1br8CLF_QniKqhNB4',
   authDomain: 'boosten-academy.firebaseapp.com',

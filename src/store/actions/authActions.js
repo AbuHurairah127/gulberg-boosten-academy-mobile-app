@@ -16,7 +16,7 @@ import {
   getDocs,
   orderBy,
   setDoc,
-} from 'firebase/firestore';
+} from 'firebase/firestore/lite';
 export const userLogin = data => async dispatch => {
   try {
     console.log('actionWorking');
@@ -24,8 +24,8 @@ export const userLogin = data => async dispatch => {
     let currentStudent = {};
     let marksArray = [];
     // setButtonLoader(true);
-    data = {...data, userName: `${data.rollNo}@gulbergbostonacadmey.web.app`};
-    console.log(data);
+    data = {...data, userName: `${data.rollNo}@gulbergbostonacademy.web.app`};
+    console.log(data.userName);
     const res = await signInWithEmailAndPassword(
       auth,
       data.userName,
