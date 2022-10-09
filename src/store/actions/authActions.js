@@ -33,6 +33,7 @@ export const userLogin = data => async dispatch => {
     );
     console.log(res, 'after sign in');
     let user = auth.currentUser;
+    console.log('🚀 ~ file: authActions.js ~ line 36 ~ userLogin ~ user', user);
     const docSnap = await getDoc(doc(db, 'students', user.uid));
     let userData = docSnap.data();
     const attendanceRef = doc(db, 'attendance', user.uid);
@@ -65,24 +66,21 @@ export const userLogin = data => async dispatch => {
   } catch (error) {
     console.log(error.message, 'error in firebase');
   } finally {
-    // setTimeout(() => {
-    //   setButtonLoader(false);
-    // }, 2500);
   }
 };
-// export const userLogout = setIsLoggingOut => async dispatch => {
-//   try {
-//     setIsLoggingOut(true);
-//     signOut(auth);
-//     dispatch({
-//       type: LOGOUT,
-//     });
-//   } catch (error) {
-//     window.notify(error.message, 'error');
-//   } finally {
-//     // setIsLoggingOut(false);
-//   }
-// };
+export const userLogout = () => async dispatch => {
+  try {
+    // setIsLoggingOut(true);
+    signOut(auth);
+    dispatch({
+      type: LOGOUT,
+    });
+  } catch (error) {
+    window.notify(error.message, 'error');
+  } finally {
+    // setIsLoggingOut(false);
+  }
+};
 export const fetchCurrentUser = () => async dispatch => {
   try {
     console.log('fetch user working...');
@@ -97,13 +95,13 @@ export const fetchCurrentUser = () => async dispatch => {
         console.log('====================================');
         const docSnap = await getDoc(doc(db, 'students', user.uid));
         console.log('====================================');
-        console.log(docSnap);
+        console.log(docSnap, 'docsnap');
         console.log('====================================');
         const userData = docSnap.data();
         console.log('====================================');
-        console.log(userData);
+        console.log(userData, '101');
         console.log('====================================');
-        if (userData) {
+        if (userData !== null && userData !== undefined) {
           const attendanceRef = doc(db, 'attendance', userData.uid);
           const attendanceSnap = await getDoc(attendanceRef);
 
@@ -132,17 +130,16 @@ export const fetchCurrentUser = () => async dispatch => {
             type: LOGIN,
             payload: currentStudent,
           });
+          if (user) {
+            console.log(`authentication success message ${user.email}`);
+          }
         } else {
           await signOut(auth);
           dispatch({type: LOGOUT});
-          window.notify(
-            'You are not allowed to sign in any more.Please contact management for more information.',
-            'info',
-          );
+          console.log('====================================');
+          console.log('no such document');
+          console.log('====================================');
         }
-      }
-      if (user) {
-        console.log(`authentication success message ${user.email}`);
       }
     });
   } catch (error) {

@@ -14,7 +14,20 @@ const MainNavigation = () => {
       {isAuthenticated ? (
         <NavigationContainer>
           <Stack.Navigator>
-            <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen
+              name="Home"
+              component={Home}
+              options={{
+                title: 'Gulberg Boston Acadmey',
+                headerStyle: {
+                  backgroundColor: '#1D3557',
+                },
+                headerTitleStyle: {
+                  color: 'white',
+                },
+                headerTitleAlign: 'center',
+              }}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       ) : (
