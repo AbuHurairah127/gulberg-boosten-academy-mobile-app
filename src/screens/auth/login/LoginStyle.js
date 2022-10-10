@@ -15,11 +15,11 @@ export const styles = StyleSheet.create({
   header_text: {
     fontWeight: 'bold',
     fontSize: 30,
-    color: '#212529',
+    color: '#1D3557',
   },
   body: {
     flex: 3,
-    backgroundColor: '#212529',
+    backgroundColor: '#1D3557',
     borderTopRightRadius: 35,
     borderTopLeftRadius: 35,
     width: '100%',

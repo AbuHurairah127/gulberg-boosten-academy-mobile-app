@@ -8,5 +8,6 @@ export const styles = StyleSheet.create({
   },
   button_text: {
     fontSize: 17,
+    color: '#1D3557',
   },
 });
