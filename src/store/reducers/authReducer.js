@@ -1,6 +1,6 @@
 import {LOGIN, LOGOUT, NEWS} from './../types/constants';
 let initialState = {
-  isAuthenticated: false,
+  isAuthenticated: true,
   cUser: {},
   cUserAttendance: [],
   noOfPresentDays: 0,

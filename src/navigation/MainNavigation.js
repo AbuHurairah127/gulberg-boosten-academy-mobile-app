@@ -6,9 +6,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useSelector} from 'react-redux';
 const Stack = createNativeStackNavigator();
 const MainNavigation = () => {
-  const isAuthenticated = useSelector(
-    store => store.authReducer.isAuthenticated,
-  );
+  const isAuthenticated = true;
   return (
     <>
       {isAuthenticated ? (

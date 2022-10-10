@@ -33,9 +33,9 @@ const useLogin = () => {
       dispatch(userLogin(loginData));
     }
   };
-  useEffect(() => {
-    dispatch(fetchCurrentUser());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchCurrentUser());
+  // }, [dispatch]);
   return {
     passwordAppear,
     setPasswordAppear,
