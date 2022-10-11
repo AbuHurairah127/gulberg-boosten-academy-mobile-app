@@ -31,9 +31,7 @@ export const userLogin = data => async dispatch => {
       data.userName,
       data.password,
     );
-    console.log(res, 'after sign in');
     let user = auth.currentUser;
-    console.log('🚀 ~ file: authActions.js ~ line 36 ~ userLogin ~ user', user);
     const docSnap = await getDoc(doc(db, 'students', user.uid));
     let userData = docSnap.data();
     const attendanceRef = doc(db, 'attendance', user.uid);
@@ -62,7 +60,6 @@ export const userLogin = data => async dispatch => {
       type: LOGIN,
       payload: currentStudent,
     });
-    console.log('login succes');
   } catch (error) {
     console.log(error.message, 'error in firebase');
   } finally {
@@ -83,24 +80,13 @@ export const userLogout = () => async dispatch => {
 };
 export const fetchCurrentUser = () => async dispatch => {
   try {
-    console.log('fetch user working...');
     onAuthStateChanged(auth, async user => {
       let attendanceArray = [];
       let marksArray = [];
       let currentStudent = {};
       if (user) {
-        console.log('====================================');
-        console.log(user.email);
-        console.log(user.uid);
-        console.log('====================================');
         const docSnap = await getDoc(doc(db, 'students', user.uid));
-        console.log('====================================');
-        console.log(docSnap, 'docsnap');
-        console.log('====================================');
         const userData = docSnap.data();
-        console.log('====================================');
-        console.log(userData, '101');
-        console.log('====================================');
         if (userData !== null && userData !== undefined) {
           const attendanceRef = doc(db, 'attendance', userData.uid);
           const attendanceSnap = await getDoc(attendanceRef);
@@ -125,20 +111,15 @@ export const fetchCurrentUser = () => async dispatch => {
             studentSubjects: subjects,
             studentMarks: marksArray,
           };
-          console.log('fetch user success');
           dispatch({
             type: LOGIN,
             payload: currentStudent,
           });
           if (user) {
-            console.log(`authentication success message ${user.email}`);
           }
         } else {
           await signOut(auth);
           dispatch({type: LOGOUT});
-          console.log('====================================');
-          console.log('no such document');
-          console.log('====================================');
         }
       }
     });
