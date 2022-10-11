@@ -33,4 +33,10 @@ export const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
   },
+  touchAble: {
+    flex: 1,
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });

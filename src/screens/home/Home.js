@@ -7,8 +7,7 @@ import Footer from '../../components/footer/Footer';
 import Icon from 'react-native-vector-icons/dist/Foundation';
 import Ionicons from 'react-native-vector-icons/dist/Ionicons';
 import Fontisto from 'react-native-vector-icons/dist/Fontisto';
-const Home = () => {
-  const dispatch = useDispatch();
+const Home = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.upperSectionContainer}>
@@ -27,8 +26,12 @@ const Home = () => {
           <Text style={styles.label}>Fees</Text>
         </View>
         <View style={styles.RightSection}>
-          <Ionicons name="person" color="white" size={50} />
-          <Text style={styles.label}>Profile</Text>
+          <TouchableOpacity
+            style={styles.touchAble}
+            onPress={() => navigation.navigate('Profile')}>
+            <Ionicons name="person" color="white" size={50} />
+            <Text style={styles.label}>Profile</Text>
+          </TouchableOpacity>
         </View>
       </View>
       <Footer />

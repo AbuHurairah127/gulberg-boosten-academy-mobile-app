@@ -94,7 +94,14 @@ export const fetchCurrentUser = () => async dispatch => {
           if (attendanceSnap.exists()) {
             const attendance = attendanceSnap.data();
             attendanceArray = Object.values(attendance);
+            console.log(
+              '🚀 ~ file: authActions.js ~ line 97 ~ fetchCurrentUser ~ attendanceArray',
+              attendanceArray,
+            );
           }
+          console.log('====================================');
+          console.log(attendanceArray);
+          console.log('====================================');
           const marksRef = doc(db, 'marks', user.uid);
           const marksSnap = await getDoc(marksRef);
 
