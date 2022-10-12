@@ -5,13 +5,20 @@ import Footer from '../../components/footer/Footer';
 import Icon from 'react-native-vector-icons/dist/Foundation';
 import Ionicons from 'react-native-vector-icons/dist/Ionicons';
 import Fontisto from 'react-native-vector-icons/dist/Fontisto';
+import {useSelector} from 'react-redux';
 const Home = ({navigation}) => {
+  const marks = useSelector(store => store.authReducer.cUserMarks);
+  console.log('🚀 ~ file: Home.js ~ line 11 ~ Home ~ marks', marks);
   return (
     <View style={styles.container}>
       <View style={styles.upperSectionContainer}>
         <View style={styles.LeftSection}>
-          <Icon name="results" color="white" size={50} />
-          <Text style={styles.label}>Result</Text>
+          <TouchableOpacity
+            style={styles.touchAble}
+            onPress={() => navigation.navigate('Result')}>
+            <Icon name="results" color="white" size={50} />
+            <Text style={styles.label}>Result</Text>
+          </TouchableOpacity>
         </View>
         <View style={styles.RightSection}>
           <Icon name="graph-pie" color="white" size={50} />

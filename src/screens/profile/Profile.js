@@ -3,11 +3,8 @@ import React from 'react';
 import {styles} from './ProfileStyles';
 import useProfile from './useProfile';
 import Button from '../../components/button/Button';
-import {useSelector} from 'react-redux';
 const Profile = () => {
-  const cUser = useSelector(store => store.authReducer.cUser);
-  console.log('🚀 ~ file: Profile.js ~ line 9 ~ Profile ~ cUser', cUser);
-  const {onLogoutHandler} = useProfile();
+  const {onLogoutHandler, cUser} = useProfile();
   return (
     <View style={styles.container}>
       <View style={styles.upperSection}>
