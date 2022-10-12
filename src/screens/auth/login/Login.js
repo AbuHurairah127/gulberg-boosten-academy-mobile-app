@@ -17,6 +17,7 @@ const Login = () => {
     loginData,
     onChangeHandler,
     onSubmitHandler,
+    loading,
   } = useLogin();
   return (
     <View style={styles.container}>
@@ -60,11 +61,12 @@ const Login = () => {
           </View>
           <View style={styles.button_container}>
             <Button
-              label="Login"
+              label={!loading ? 'Login' : 'Loading...'}
               event={() => {
                 console.log('login');
                 onSubmitHandler();
               }}
+              disabled={loading}
               type="submit"
             />
           </View>

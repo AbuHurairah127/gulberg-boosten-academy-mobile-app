@@ -18,8 +18,9 @@ import {
   orderBy,
   setDoc,
 } from 'firebase/firestore/lite';
-export const userLogin = data => async dispatch => {
+export const userLogin = (data, setLoading) => async dispatch => {
   try {
+    setLoading(true);
     console.log('actionWorking');
     let attendanceArray = [];
     let currentStudent = {};
@@ -87,6 +88,7 @@ export const userLogin = data => async dispatch => {
       });
     }
   } finally {
+    setLoading(false);
   }
 };
 export const userLogout = () => async dispatch => {

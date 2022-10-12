@@ -6,6 +6,7 @@ import {useEffect} from 'react';
 const useLogin = () => {
   const dispatch = useDispatch();
   const [passwordAppear, setPasswordAppear] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [loginData, setLoginData] = useState({
     rollNo: '',
     password: '',
@@ -30,7 +31,7 @@ const useLogin = () => {
         text2: 'You have not entered your password properly.',
       });
     } else {
-      dispatch(userLogin(loginData));
+      dispatch(userLogin(loginData, setLoading));
     }
   };
   useEffect(() => {
@@ -42,6 +43,7 @@ const useLogin = () => {
     loginData,
     onChangeHandler,
     onSubmitHandler,
+    loading,
   };
 };
 
