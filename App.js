@@ -2,6 +2,7 @@ import React from 'react';
 import {SafeAreaView} from 'react-native';
 import {Provider} from 'react-redux';
 import store from './src/config/store';
+import Toast from 'react-native-toast-message';
 import MainNavigation from './src/navigation/MainNavigation';
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
         }}>
         <MainNavigation />
       </SafeAreaView>
+      <Toast />
     </Provider>
   );
 };

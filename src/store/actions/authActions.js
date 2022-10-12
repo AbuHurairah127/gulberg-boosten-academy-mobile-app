@@ -1,5 +1,6 @@
 import {LOGIN, LOGOUT, NEWS} from '../types/constants';
 import {auth, db} from './../../config/firebase';
+import Toast from 'react-native-toast-message';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -60,8 +61,31 @@ export const userLogin = data => async dispatch => {
       type: LOGIN,
       payload: currentStudent,
     });
+    Toast.show({
+      type: 'success',
+      text1: 'Login Successfully',
+      text2: `${user.displayName} has been successfully logged in.`,
+    });
   } catch (error) {
-    console.log(error.message, 'error in firebase');
+    if (error.message === 'Firebase: Error (auth/user-not-found).') {
+      Toast.show({
+        type: 'error',
+        text1: 'Wrong Roll no',
+        text2: 'This student ID does not exists in our record.',
+      });
+    } else if (error.message === 'Firebase: Error (auth/wrong-password).') {
+      Toast.show({
+        type: 'error',
+        text1: 'Wrong Password',
+        text2: 'Entering wrong password or entering the old password.',
+      });
+    } else {
+      Toast.show({
+        type: 'error',
+        text1: `Internal Server Error`,
+        text2: `${error.message}`,
+      });
+    }
   } finally {
   }
 };
@@ -71,6 +95,10 @@ export const userLogout = () => async dispatch => {
     signOut(auth);
     dispatch({
       type: LOGOUT,
+    });
+    Toast.show({
+      type: 'success',
+      text1: 'Successfully logged out.',
     });
   } catch (error) {
     window.notify(error.message, 'error');
@@ -122,16 +150,28 @@ export const fetchCurrentUser = () => async dispatch => {
             type: LOGIN,
             payload: currentStudent,
           });
-          if (user) {
-          }
+          Toast.show({
+            type: 'success',
+            text1: 'Login Successfully',
+            text2: `${user.displayName} has been successfully logged in.`,
+          });
         } else {
           await signOut(auth);
           dispatch({type: LOGOUT});
+          Toast.show({
+            type: 'error',
+            text1: 'Access Denied',
+            text2: `${user.displayName}!Your access has been denied please contact management.`,
+          });
         }
       }
     });
   } catch (error) {
-    window.notify(error.message, 'error');
+    Toast.show({
+      type: 'error',
+      text1: 'Error 505',
+      text2: `${error.message}`,
+    });
   } finally {
     // setTimeout(() => {
     //   setPreLoader(false);
