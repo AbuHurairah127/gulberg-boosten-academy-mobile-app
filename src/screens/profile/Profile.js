@@ -6,16 +6,23 @@ import Button from '../../components/button/Button';
 import {useSelector} from 'react-redux';
 const Profile = () => {
   const cUser = useSelector(store => store.authReducer.cUser);
-  console.log('🚀 ~ file: Profile.js ~ line 9 ~ Profile ~ cUser', cUser.gender);
+  console.log('🚀 ~ file: Profile.js ~ line 9 ~ Profile ~ cUser', cUser);
   const {onLogoutHandler} = useProfile();
   return (
     <View style={styles.container}>
       <View style={styles.upperSection}>
         <View style={styles.imageContainer}>
-          <Image
-            style={styles.image}
-            source={require('./../../assets/male-icon.png')}
-          />
+          {cUser.gender === 'Male' ? (
+            <Image
+              style={styles.image}
+              source={require('./../../assets/male-icon.png')}
+            />
+          ) : (
+            <Image
+              style={styles.image}
+              source={require('./../../assets/female-icon.png')}
+            />
+          )}
         </View>
       </View>
       <View style={styles.lowerSection}>

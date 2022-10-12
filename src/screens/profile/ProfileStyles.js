@@ -8,9 +8,11 @@ export const styles = StyleSheet.create({
   },
   imageContainer: {
     flex: 1,
+    borderRadius: 100,
   },
   image: {
-    // width: '100 %',
+    flex: 1,
+    width: '100%',
   },
   lowerSection: {
     flex: 1,
