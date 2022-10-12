@@ -1,7 +1,5 @@
 import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
-import {useDispatch} from 'react-redux';
-import {userLogout} from '../../store/actions/authActions';
 import {styles} from './HomeStyles';
 import Footer from '../../components/footer/Footer';
 import Icon from 'react-native-vector-icons/dist/Foundation';
@@ -34,7 +32,7 @@ const Home = ({navigation}) => {
           </TouchableOpacity>
         </View>
       </View>
-      <Footer />
+      <Footer navigation={navigation} />
     </View>
   );
 };

@@ -1,11 +1,10 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 import {styles} from './FooterStyles';
-
-const Footer = () => {
+const Footer = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Text style={{color: 'white'}}>Footer</Text>
+      <Text>Abc</Text>
     </View>
   );
 };
