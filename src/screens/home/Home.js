@@ -5,10 +5,7 @@ import Footer from '../../components/footer/Footer';
 import Icon from 'react-native-vector-icons/dist/Foundation';
 import Ionicons from 'react-native-vector-icons/dist/Ionicons';
 import Fontisto from 'react-native-vector-icons/dist/Fontisto';
-import {useSelector} from 'react-redux';
 const Home = ({navigation}) => {
-  const marks = useSelector(store => store.authReducer.cUserMarks);
-  console.log('🚀 ~ file: Home.js ~ line 11 ~ Home ~ marks', marks);
   return (
     <View style={styles.container}>
       <View style={styles.upperSectionContainer}>
