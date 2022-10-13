@@ -25,4 +25,14 @@ export const styles = StyleSheet.create({
     padding: 3,
     fontSize: 15,
   },
+  cardBody: {
+    fontSize: 15,
+    height: 300,
+    backgroundColor: 'green',
+  },
+  leftSection: {
+    justifyContent: 'space-between',
+    height: 300,
+    backgroundColor: 'white',
+  },
 });
