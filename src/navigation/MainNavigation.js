@@ -6,7 +6,7 @@ import Result from '../screens/result/Result';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useSelector} from 'react-redux';
-import {TouchableOpacity, Text} from 'react-native';
+import Attendance from '../screens/attendance/Attendance';
 const Stack = createNativeStackNavigator();
 const MainNavigation = () => {
   const isAuthenticated = useSelector(
@@ -56,6 +56,20 @@ const MainNavigation = () => {
                 headerTintColor: '#FFFFFF',
                 headerBackTitleVisible: true,
                 headerTitle: 'Result',
+                headerTitleAlign: 'center',
+              }}
+            />
+            <Stack.Screen
+              name="Attendance"
+              component={Attendance}
+              options={{
+                title: '',
+                headerStyle: {
+                  backgroundColor: '#1D3557',
+                },
+                headerTintColor: '#FFFFFF',
+                headerBackTitleVisible: true,
+                headerTitle: 'Attendance',
                 headerTitleAlign: 'center',
               }}
             />

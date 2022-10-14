@@ -1,4 +1,4 @@
-import {View, Text, FlatList} from 'react-native';
+import {View, FlatList} from 'react-native';
 import React from 'react';
 import ResultCard from '../../components/resultCard/ResultCard';
 import {styles} from './ResultStyles';
@@ -10,7 +10,7 @@ const Result = () => {
     <View style={styles.cardContainer}>
       <FlatList
         data={marks}
-        renderItem={({item, index}) => <ResultCard marks={item} />}
+        renderItem={({item}) => <ResultCard marks={item} />}
         keyExtractor={item => item.testNo}
       />
     </View>

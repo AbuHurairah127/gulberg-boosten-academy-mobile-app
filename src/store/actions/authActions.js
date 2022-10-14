@@ -129,9 +129,6 @@ export const fetchCurrentUser = () => async dispatch => {
               attendanceArray,
             );
           }
-          console.log('====================================');
-          console.log(attendanceArray);
-          console.log('====================================');
           const marksRef = doc(db, 'marks', user.uid);
           const marksSnap = await getDoc(marksRef);
 

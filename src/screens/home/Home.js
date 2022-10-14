@@ -18,8 +18,12 @@ const Home = ({navigation}) => {
           </TouchableOpacity>
         </View>
         <View style={styles.RightSection}>
-          <Icon name="graph-pie" color="white" size={50} />
-          <Text style={styles.label}>Attendance</Text>
+          <TouchableOpacity
+            style={styles.touchAble}
+            onPress={() => navigation.navigate('Attendance')}>
+            <Icon name="graph-pie" color="white" size={50} />
+            <Text style={styles.label}>Attendance</Text>
+          </TouchableOpacity>
         </View>
       </View>
       <View style={styles.lowerSectionContainer}>
