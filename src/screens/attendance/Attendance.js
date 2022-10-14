@@ -1,9 +1,8 @@
-import {View} from 'react-native';
+import {View, Text} from 'react-native';
 import React from 'react';
 import {styles} from './AttendanceStyles';
 import {PieChart} from 'react-native-svg-charts';
 import useAttendance from './useAttendance';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const Attendance = () => {
   const {presents, absents, totalDays} = useAttendance();
@@ -25,6 +24,18 @@ const Attendance = () => {
     <View style={styles.container}>
       <View style={styles.graphContainer}>
         <PieChart style={{height: 200}} data={pieData} />
+        <View style={styles.attendanceInfoContainer}>
+          <View style={styles.singleInfoContainer}>
+            <View
+              style={{...styles.labelColor, backgroundColor: COLORS[0]}}></View>
+            <Text>{parseInt((presents / totalDays) * 100)}% Presents</Text>
+          </View>
+          <View style={styles.singleInfoContainer}>
+            <View
+              style={{...styles.labelColor, backgroundColor: COLORS[1]}}></View>
+            <Text>{parseInt((absents / totalDays) * 100)}% Absents</Text>
+          </View>
+        </View>
       </View>
       <View style={styles.detailsContainer}></View>
     </View>
