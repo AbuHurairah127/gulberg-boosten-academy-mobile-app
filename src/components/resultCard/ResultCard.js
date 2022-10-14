@@ -4,10 +4,6 @@ import {styles} from './ResultCardStyles';
 import useResultCard from './useResultCard';
 
 const ResultCard = ({marks}) => {
-  console.log(
-    '🚀 ~ file: resultCard.js ~ line 7 ~ ResultCard ~ item',
-    marks.obtainedMarks,
-  );
   const {cUserSubjects} = useResultCard();
   return (
     <View style={styles.container}>
