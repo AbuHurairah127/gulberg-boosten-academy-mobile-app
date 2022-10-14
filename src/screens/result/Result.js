@@ -10,7 +10,7 @@ const Result = () => {
     <View style={styles.cardContainer}>
       <FlatList
         data={marks}
-        renderItem={({item, index}) => <ResultCard item={item} />}
+        renderItem={({item, index}) => <ResultCard marks={item} />}
         keyExtractor={item => item.testNo}
       />
     </View>

@@ -3,29 +3,35 @@ import React from 'react';
 import {styles} from './ResultCardStyles';
 import useResultCard from './useResultCard';
 
-const ResultCard = ({item}) => {
-  const {cUserSubjects} = useResultCard();
+const ResultCard = ({marks}) => {
   console.log(
-    '🚀 ~ file: resultCard.js ~ line 8 ~ ResultCard ~ cUserSubjects',
-    cUserSubjects,
+    '🚀 ~ file: resultCard.js ~ line 7 ~ ResultCard ~ item',
+    marks.obtainedMarks,
   );
+  const {cUserSubjects} = useResultCard();
   return (
     <View style={styles.container}>
       <View style={styles.cardHeader}>
-        <Text style={styles.cardHeaderText}>Test No. {item.testNo}</Text>
+        <Text style={styles.cardHeaderText}>Test No. {marks.testNo}</Text>
       </View>
       <View style={styles.cardBody}>
         <View style={styles.leftSection}>
           <FlatList
+            style={styles.cardBodyLeft}
             data={cUserSubjects}
-            renderItem={({item, index}) => <Text>{item}</Text>}
+            renderItem={({item}) => (
+              <Text style={styles.cardBodyLeftText}>{item}</Text>
+            )}
             keyExtractor={index => index}
           />
         </View>
-        <View style={styles.leftSection}>
+        <View style={styles.rightSection}>
           <FlatList
+            style={styles.cardBodyRight}
             data={cUserSubjects}
-            renderItem={({item, index}) => <Text>{item}</Text>}
+            renderItem={({item}) => (
+              <Text>{`${marks.obtainedMarks[item]}/${marks.totalMarks[item]}`}</Text>
+            )}
             keyExtractor={index => index}
           />
         </View>

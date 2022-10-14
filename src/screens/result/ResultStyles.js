@@ -3,5 +3,6 @@ export const styles = StyleSheet.create({
   cardContainer: {
     flex: 1,
     alignItems: 'center',
+    justifyContent: 'center',
   },
 });

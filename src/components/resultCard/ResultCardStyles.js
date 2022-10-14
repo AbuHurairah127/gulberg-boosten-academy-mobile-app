@@ -2,8 +2,8 @@ import {StyleSheet, Dimensions} from 'react-native';
 const deviceWidth = Math.round(Dimensions.get('window').width);
 export const styles = StyleSheet.create({
   container: {
-    width: deviceWidth - 25,
-    height: 325,
+    width: deviceWidth - 35,
+    height: 328,
     borderRadius: 15,
     shadowColor: '#000',
     shadowOffset: {
@@ -12,9 +12,9 @@ export const styles = StyleSheet.create({
     },
     shadowOpacity: 0.3,
     shadowRadius: 4.65,
-
     elevation: 8,
     padding: 15,
+    margin: 15,
   },
   cardHeader: {
     borderBottomWidth: 1,
@@ -26,13 +26,21 @@ export const styles = StyleSheet.create({
     fontSize: 15,
   },
   cardBody: {
-    fontSize: 15,
-    height: 300,
-    backgroundColor: 'green',
+    flexDirection: 'row',
   },
-  leftSection: {
-    justifyContent: 'space-between',
-    height: 300,
-    backgroundColor: 'white',
+  cardBodyLeft: {
+    height: 270,
+    justifyContent: 'space-around',
+    width: parseInt((deviceWidth - 65) / 2),
+  },
+  cardBodyLeftText: {
+    fontSize: 15,
+  },
+  cardBodyRight: {
+    width: parseInt((deviceWidth - 65) / 2),
+    height: 270,
+    justifyContent: 'space-around',
+    borderLeftWidth: 1,
+    paddingLeft: 15,
   },
 });
