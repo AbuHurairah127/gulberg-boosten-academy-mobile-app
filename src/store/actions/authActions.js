@@ -2,7 +2,6 @@ import {LOGIN, LOGOUT, NEWS} from '../types/constants';
 import {auth, db} from './../../config/firebase';
 import Toast from 'react-native-toast-message';
 import {
-  createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updatePassword,
   onAuthStateChanged,

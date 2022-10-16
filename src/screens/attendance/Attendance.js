@@ -3,13 +3,10 @@ import React from 'react';
 import {styles} from './AttendanceStyles';
 import {PieChart} from 'react-native-svg-charts';
 import useAttendance from './useAttendance';
-
 const Attendance = () => {
   const {presents, absents, totalDays} = useAttendance();
   const data = [presents, absents];
-
   const COLORS = ['#28a264', '#dc3b37'];
-
   const pieData = data
     .filter(value => value > 0)
     .map((value, index) => ({
@@ -41,5 +38,4 @@ const Attendance = () => {
     </View>
   );
 };
-
 export default Attendance;

@@ -27,10 +27,10 @@ const Home = ({navigation}) => {
         </View>
       </View>
       <View style={styles.lowerSectionContainer}>
-        <View style={styles.LeftSection}>
+        {/* <View style={styles.LeftSection}>
           <Fontisto name="wallet" color="white" size={50} />
           <Text style={styles.label}>Fees</Text>
-        </View>
+        </View> */}
         <View style={styles.RightSection}>
           <TouchableOpacity
             style={styles.touchAble}
