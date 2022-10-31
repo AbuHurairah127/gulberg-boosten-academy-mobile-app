@@ -20,21 +20,39 @@ const Attendance = () => {
   return (
     <View style={styles.container}>
       <View style={styles.graphContainer}>
-        <PieChart style={{height: 200}} data={pieData} />
-        <View style={styles.attendanceInfoContainer}>
-          <View style={styles.singleInfoContainer}>
-            <View
-              style={{...styles.labelColor, backgroundColor: COLORS[0]}}></View>
-            <Text>{parseInt((presents / totalDays) * 100)}% Presents</Text>
-          </View>
-          <View style={styles.singleInfoContainer}>
-            <View
-              style={{...styles.labelColor, backgroundColor: COLORS[1]}}></View>
-            <Text>{parseInt((absents / totalDays) * 100)}% Absents</Text>
-          </View>
-        </View>
+        {presents === 0 && absents === 0 ? (
+          <Text
+            style={{
+              fontSize: 18,
+              textAlign: 'center',
+              padding: 5,
+            }}>
+            No attendance uploaded
+          </Text>
+        ) : (
+          <>
+            <PieChart style={{height: 200}} data={pieData} />
+            <View style={styles.attendanceInfoContainer}>
+              <View style={styles.singleInfoContainer}>
+                <View
+                  style={{
+                    ...styles.labelColor,
+                    backgroundColor: COLORS[0],
+                  }}></View>
+                <Text>{parseInt((presents / totalDays) * 100)}% Presents</Text>
+              </View>
+              <View style={styles.singleInfoContainer}>
+                <View
+                  style={{
+                    ...styles.labelColor,
+                    backgroundColor: COLORS[1],
+                  }}></View>
+                <Text>{parseInt((absents / totalDays) * 100)}% Absents</Text>
+              </View>
+            </View>
+          </>
+        )}
       </View>
-      <View style={styles.detailsContainer}></View>
     </View>
   );
 };
