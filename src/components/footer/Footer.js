@@ -4,7 +4,12 @@ import {styles} from './FooterStyles';
 const Footer = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Text>Abc</Text>
+      <Text style={styles.footerText}>
+        Created by&nbsp;
+        <Text style={{...styles.footerText, fontWeight: 'bold'}}>
+          Abu Hurairah
+        </Text>
+      </Text>
     </View>
   );
 };
