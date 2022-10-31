@@ -11,7 +11,9 @@ const Result = () => {
       {marks.length === 0 ? (
         <View style={styles.noResultContainer}>
           {console.log(true)}
-          <Text>No result has uploaded on the portal.</Text>
+          <Text style={styles.noResultText}>
+            No result has uploaded on the portal.
+          </Text>
         </View>
       ) : (
         <FlatList

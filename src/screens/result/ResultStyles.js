@@ -7,6 +7,12 @@ export const styles = StyleSheet.create({
   },
   noResultContainer: {
     flex: 1,
-    backgroundColor: 'red',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  noResultText: {
+    fontSize: 25,
+    textAlign: 'center',
+    padding: 8,
   },
 });
