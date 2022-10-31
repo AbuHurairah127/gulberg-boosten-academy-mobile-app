@@ -3,7 +3,7 @@ import React from 'react';
 import {styles} from './ResultCardStyles';
 import useResultCard from './useResultCard';
 
-const ResultCard = ({marks}) => {
+const ResultCard = ({marks, listKey}) => {
   const {cUserSubjects} = useResultCard();
   return (
     <View style={styles.container}>
